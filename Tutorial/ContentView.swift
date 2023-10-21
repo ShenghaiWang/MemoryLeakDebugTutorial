@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var viewModel = ViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 16) {
+            Button(action: {
+                viewModel.cleanup()
+            }, label: {
+                Text("Clean up")
+            })
+
+            Button(action: {
+                viewModel.renewAndSetupCircularReference()
+            }, label: {
+                Text("Renew and Setup Circular Reference")
+            })
+
         }
         .padding()
     }
